@@ -1,11 +1,11 @@
-import React from 'react';
-import './App.css';
-import { FinDataController } from './components/FinDataController';
+import React from "react";
+import "./App.css";
+import { FinDataContainer } from "./components/FinDataContainer";
 
 function App() {
   return (
     <div>
-      <FinDataController/>
+      <FinDataContainer />
     </div>
   );
 }
