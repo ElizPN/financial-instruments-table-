@@ -56,38 +56,16 @@ describe("assetClassSorter", () => {
     expect(sortedArray).toEqual(expectedArray);
   });
 
-  test("should return error if empty array", () => {
+  test("should return empty array when get empty array", () => {
     // prepare
     const mockArrayFinData: [] = [];
-
-    const expectedArray = [
-      {
-        ticker: "DELTA",
-        price: 3132.66,
-        assetClass: "Equities",
-      },
-      {
-        ticker: "ETA",
-        price: 3089.2,
-        assetClass: "Macro",
-      },
-      {
-        ticker: "EPSILON",
-        price: 1168.46,
-        assetClass: "Credit",
-      },
-      {
-        ticker: "ZETA",
-        price: 2716.78,
-        assetClass: "Credit",
-      },
-    ];
+    const expectedArray: [] = []
 
     // act
     const sortedArray = assetClassSorter(mockArrayFinData);
 
     // assert
-    // expect(sortedArray).toEqual(expectedArray);
+    expect(sortedArray).toEqual(expectedArray);
   });
 
   test("should return sorted array if there is no assetClass property", () => {
