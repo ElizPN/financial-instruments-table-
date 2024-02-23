@@ -1,15 +1,15 @@
 import { FinDataItem } from "../components/FinDataController";
 
 function compareTickers(a: FinDataItem, b: FinDataItem) {
-    if (a.ticker === undefined && b.ticker === undefined) {
+    if (!a.ticker && !b.ticker) {
         return 0
     }
 
-    if (a.ticker === undefined) {
+    if (!a.ticker) {
         return 1
     }
 
-    if (b.ticker === undefined) {
+    if (!b.ticker ) {
         return -1
     }
 

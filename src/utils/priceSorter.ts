@@ -1,15 +1,15 @@
 import { FinDataItem } from "../components/FinDataController";
 
 function compareNumbers(a: FinDataItem, b: FinDataItem) {
-  if (a.price === undefined && b.price === undefined) {
+  if (!a.price && !b.price) {
     return 0;
   }
 
-  if (a.price === undefined) {
+  if (!a.price) {
     return 1;
   }
 
-  if (b.price === undefined) {
+  if (!b.price) {
     return -1;
   }
   return b.price - a.price;

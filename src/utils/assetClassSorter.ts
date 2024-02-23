@@ -7,15 +7,15 @@ function compareAssetClass(a: FinDataItem, b: FinDataItem) {
     ["Credit", 3],
   ]);
 
-  if (a.assetClass === undefined && b.assetClass === undefined) {
+  if (!a.assetClass  && !b.assetClass) {
     return 0;
   }
 
-  if (a.assetClass === undefined) {
+  if (!a.assetClass) {
     return 1;
   }
 
-  if (b.assetClass === undefined) {
+  if (!b.assetClass) {
     return -1;
   }
 
