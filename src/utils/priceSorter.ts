@@ -1,17 +1,18 @@
 import { FinDataItem } from "../components/FinDataController";
 
 function compareNumbers(a: FinDataItem, b: FinDataItem) {
-  if (b.price && a.price) {
-    return b.price - a.price;
+  if (a.price === undefined && b.price === undefined) {
+    return 0;
   }
-  if (b.price === undefined && a.price !== undefined) {
-    return -1;
-  }
-  if (b.price !== undefined && a.price === undefined) {
+
+  if (a.price === undefined) {
     return 1;
   }
 
-  return 0;
+  if (b.price === undefined) {
+    return -1;
+  }
+  return b.price - a.price;
 }
 
 export const priceSorter = (array: FinDataItem[]) => {

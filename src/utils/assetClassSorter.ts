@@ -7,24 +7,23 @@ function compareAssetClass(a: FinDataItem, b: FinDataItem) {
     ["Credit", 3],
   ]);
 
+  if (a.assetClass === undefined && b.assetClass === undefined) {
+    return 0;
+  }
+
+  if (a.assetClass === undefined) {
+    return 1;
+  }
+
+  if (b.assetClass === undefined) {
+    return -1;
+  }
+
   // if word is not in the Map (or null / undefined ) it should be in the bottom of the list
-  if (a.assetClass !== undefined && b.assetClass !== undefined) {
-    const x = assetClasses.get(a.assetClass) ?? Number.MAX_SAFE_INTEGER;
-    const y = assetClasses.get(b.assetClass) ?? Number.MAX_SAFE_INTEGER;
+  const x = assetClasses.get(a.assetClass) ?? Number.MAX_SAFE_INTEGER;
+  const y = assetClasses.get(b.assetClass) ?? Number.MAX_SAFE_INTEGER;
 
-    return x - y;
-  }
-
-  // Handle cases where either a or b has assetClass as undefined
-  if (a.assetClass === undefined && b.assetClass !== undefined) {
-    return 1; // a should come after b
-  }
-
-  if (a.assetClass !== undefined && b.assetClass === undefined) {
-    return -1; // b should come after a
-  }
-
-  return 0; // Both a and b have assetClass as undefined
+  return x - y;
 }
 
 export const assetClassSorter = (array: FinDataItem[]) => {
