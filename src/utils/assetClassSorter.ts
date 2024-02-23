@@ -28,9 +28,5 @@ function compareAssetClass(a: FinDataItem, b: FinDataItem) {
 }
 
 export const assetClassSorter = (array: FinDataItem[]) => {
-  if (array && array.length > 0) {
-    return array.sort(compareAssetClass);
-  } else {
-    return [];
-  }
+  return array.sort(compareAssetClass);
 };
