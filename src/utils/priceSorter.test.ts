@@ -102,6 +102,48 @@ describe("priceSorter", () => {
     expect(sortedArray).toEqual(expectedArray);
   });
 
+  test("should return sorted array if price: undefined", () => {
+    // prepare
+    const mockArrayFindata = [
+      {
+        ticker: "BETA",
+        price: undefined,
+        assetClass: "Equities",
+      },
+      {
+        ticker: "GAMMA",
+        price: 2299.1,
+        assetClass: "Equities",
+      },
+      {
+        ticker: "DELTA",
+        price: 3132.66,
+        assetClass: "Equities",
+      },
+    ];
 
-  
+    const expectedArray = [
+      {
+        ticker: "DELTA",
+        price: 3132.66,
+        assetClass: "Equities",
+      },
+      {
+        ticker: "GAMMA",
+        price: 2299.1,
+        assetClass: "Equities",
+      },
+      {
+        ticker: "BETA",
+        price: undefined,
+        assetClass: "Equities",
+      },
+    ];
+
+    // act
+    const sortedArray = priceSorter(mockArrayFindata);
+
+    // assert
+    expect(sortedArray).toEqual(expectedArray);
+  });
 });
