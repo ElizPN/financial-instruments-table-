@@ -1,4 +1,4 @@
-import { FinDataItem } from "../components/FinDataController";
+import { FinDataItem } from "../hooks/useFinData";
 
 function compareAssetClass(a: FinDataItem, b: FinDataItem) {
   const assetClasses = new Map([
@@ -7,7 +7,7 @@ function compareAssetClass(a: FinDataItem, b: FinDataItem) {
     ["Credit", 3],
   ]);
 
-  if (!a.assetClass  && !b.assetClass) {
+  if (!a.assetClass && !b.assetClass) {
     return 0;
   }
 

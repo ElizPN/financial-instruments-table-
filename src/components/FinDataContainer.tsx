@@ -1,31 +1,15 @@
-import { finData } from "../configurations/fin-data.ts";
-import { assetClassSorter } from "../utils/assetClassSorter.ts";
-import { priceSorter } from "../utils/priceSorter.ts";
-import { tickerSorter } from "../utils/tickerSorter.ts";
+import { FinDataItem, useFinData } from "../hooks/useFinData.ts";
 import { Box, Container, Grid } from "@mui/material";
 
-export interface FinDataItem {
-  ticker?: string;
-  price?: number;
-  assetClass?: string;
-}
-export function FinDataController() {
-  const handleOnclickPrice = () => {
-    console.log(priceSorter(finData));
 
-    return priceSorter(finData);
-  };
 
-  const handleOnclickAssetClass = () => {
-    console.log(assetClassSorter(finData));
-
-    return assetClassSorter(finData);
-  };
-  const handleOnclickTickerSorter = () => {
-    console.log(tickerSorter(finData));
-
-    return tickerSorter(finData);
-  };
+export function FinDataContainer() {
+  const {
+    finData,
+    handleOnclickPrice,
+    handleOnclickAssetClass,
+    handleOnclickTickerSorter,
+  } = useFinData();
 
   return (
     <Container maxWidth="lg">

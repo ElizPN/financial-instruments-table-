@@ -1,4 +1,4 @@
-import { FinDataItem } from "../components/FinDataController";
+import { FinDataItem } from "../hooks/useFinData";
 
 function compareNumbers(a: FinDataItem, b: FinDataItem) {
   if (!a.price && !b.price) {
