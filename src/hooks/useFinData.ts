@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { finData as finDataFake } from "../configurations/fin-data.ts";
 import { assetClassSorter } from "../utils/assetClassSorter.ts";
 import { priceSorter } from "../utils/priceSorter.ts";
 import { tickerSorter } from "../utils/tickerSorter.ts";
@@ -16,8 +15,11 @@ export const useFinData = () => {
   const [finData, setFinData] = useState<FinDataItem[]>([]);
 
   useEffect(() => {
-    const newFinData = service.getData();
-    setFinData([...newFinData]);
+    // create async function because useEffect can not receive async function as param
+    (async () => {
+      const newFinData = await service.getData();
+      setFinData([...newFinData]);
+    })();
   }, []);
 
   const handleOnclickPrice = () => {
