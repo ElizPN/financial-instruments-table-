@@ -35,6 +35,9 @@ export function getRowColor(assetClass?: string) {
 
 export const useFinData = () => {
   const [finData, setFinData] = useState<FinDataItem[]>([]);
+  const [isActivePrice, setIsActivePrice] = useState(false);
+  const [isActiveAssetClass, setIsActiveAssetClass] = useState(false);
+  const [isActiveTicker, setIsActiveTicker] = useState(false);
 
   useEffect(() => {
     // create async function because useEffect can not receive async function as param
@@ -47,16 +50,25 @@ export const useFinData = () => {
   const handleOnclickPrice = () => {
     const sortedFinData = priceSorter(finData);
     setFinData([...sortedFinData]);
+    setIsActivePrice(true);
+    setIsActiveAssetClass(false);
+    setIsActiveTicker(false);
   };
 
   const handleOnclickAssetClass = () => {
     const sortedFinData = assetClassSorter(finData);
     setFinData([...sortedFinData]);
+    setIsActiveAssetClass(true);
+    setIsActivePrice(false);
+    setIsActiveTicker(false);
   };
 
   const handleOnclickTickerSorter = () => {
     const sortedFinData = tickerSorter(finData);
     setFinData([...sortedFinData]);
+    setIsActiveTicker(true);
+    setIsActivePrice(false);
+    setIsActiveAssetClass(false);
   };
 
   const finDataItemColored: FinDataItemColored[] = finData.map((item) => {
@@ -73,6 +85,9 @@ export const useFinData = () => {
   });
 
   return {
+    isActivePrice,
+    isActiveAssetClass,
+    isActiveTicker,
     finDataItemColored,
     handleOnclickPrice,
     handleOnclickAssetClass,
