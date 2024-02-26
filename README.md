@@ -21,7 +21,7 @@ npm start
 
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-### `run unit tests`
+### `Run unit tests`
 
 npm test
 
