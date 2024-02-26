@@ -1,6 +1,6 @@
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This single-page application displays a table of financial instruments with sorting and color-coding features. Users can sort by asset class, price, or ticker symbol. Rows are colored based on asset class, and positive prices are blue, while negative prices are red. Built with React, TS, Meterial UI and Jest for init testing.
 
 ## Available Scripts
 
@@ -34,6 +34,8 @@ npm install
 ### `Start the Development Server`
 
 npm start
+
+Open http://localhost:3000 to view it in the browser.
 
 ### `run unit tests`
 
