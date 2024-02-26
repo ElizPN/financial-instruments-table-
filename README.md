@@ -7,13 +7,15 @@ This single-page application displays a table of financial instruments with sort
 
 ### `Clone repo`
 
-[git clone https://github.com/your-username/financial-instruments-table](https://github.com/ElizPN/financial-instruments-table-.git)
-
-
+```
+git clone https://github.com/ElizPN/financial-instruments-table-.git
+```
 ### `Install Dependencies`
 
+```
 cd financial-instruments-table
 npm install
+```
 
 ### `Start the Development Server`
 
