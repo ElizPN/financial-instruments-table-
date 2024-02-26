@@ -19,4 +19,30 @@ You will also see any lint errors in the console.
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
+## `Running the Application`
+
+### `Clone repo`
+
+[git clone https://github.com/your-username/financial-instruments-table](https://github.com/ElizPN/financial-instruments-table-.git)
+
+
+### `Install Dependencies`
+
+cd financial-instruments-table
+npm install
+
+### `Start the Development Server`
+
+npm start
+
+### `run unit tests`
+
+npm test
+
+
+
+
+
+
+You can change API url in this file: finDataService.ts
 
