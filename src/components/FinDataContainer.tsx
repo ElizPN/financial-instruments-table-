@@ -3,21 +3,21 @@ import { Box, Button, Container, Grid } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import React from "react";
 
-const StyledButton = styled(Button)<{ isActive: boolean }>`
+const StyledButton = styled(Button)<{ isactive: string }>`
   cursor: pointer;
   width: 100%;
   display: inline-flex;
   padding: 8px 20px;
   justify-content: center;
   align-items: center;
-  background: ${({ isActive }) => (isActive ? "yellow" : "#E1E1E1")};
+  background: ${({ isactive }) => (isactive === "true" ? "yellow" : "#E1E1E1")};
   color: black;
   text-align: center;
   font-size: 16px;
   font-weight: 600;
   line-height: normal;
   &:hover {
-    background: ${({ isActive }) => (isActive ? "yellow" : "#E1E1E1")};
+    background: ${({ isactive}) => (isactive === "true" ? "yellow" : "#E1E1E1")};
   }
 `;
 
@@ -45,20 +45,20 @@ export function FinDataContainer() {
           <Grid item xs={1} sx={{ fontWeight: "bold" }}>
             <StyledButton
               onClick={handleOnclickTickerSorter}
-              isActive={isActiveTicker}
+              isactive={isActiveTicker ? "true" : "false"}
             >
               Ticker
             </StyledButton>
           </Grid>
           <Grid item xs={1} sx={{ fontWeight: "bold" }}>
-            <StyledButton onClick={handleOnclickPrice} isActive={isActivePrice}>
+            <StyledButton onClick={handleOnclickPrice} isactive={isActivePrice ? "true" : "false"}>
               Price
             </StyledButton>
           </Grid>
           <Grid item xs={1} sx={{ fontWeight: "bold" }}>
             <StyledButton
               onClick={handleOnclickAssetClass}
-              isActive={isActiveAssetClass}
+              isactive={isActiveAssetClass ? "true" : "false"}
             >
               {" "}
               Asset Class
