@@ -1,7 +1,7 @@
 import { FinDataItemColored, useFinData } from "../hooks/useFinData.ts";
 import { Box, Button, Container, Grid } from "@mui/material";
 import { styled } from "@mui/material/styles";
-
+import React from "react";
 
 const StyledButton = styled(Button)<{ isActive: boolean }>`
   cursor: pointer;
@@ -65,8 +65,8 @@ export function FinDataContainer() {
             </StyledButton>
           </Grid>
 
-          {finDataItemColored.map((item: FinDataItemColored) => (
-            <>
+          {finDataItemColored.map((item: FinDataItemColored, index: number) => (
+            <React.Fragment key={`${item.ticker}-${item.price}`}>
               <Grid
                 item
                 xs={1}
@@ -88,7 +88,7 @@ export function FinDataContainer() {
               <Grid item xs={1} sx={{ backgroundColor: item.rowColor }}>
                 {item.assetClass}
               </Grid>
-            </>
+            </React.Fragment>
           ))}
         </Grid>
       </Box>
